@@ -3,7 +3,6 @@ using namespace std;
 
 int euclid(int a, int b) {
 	int answer = 0;
-	int big, little;
 	while (1) {
 		if(a < b) swap(a, b);
 		if (a % b != 0) a = a % b;
