@@ -15,8 +15,8 @@ void dfs(vector<vector<int>> graph,int start) {
 }
 
 int main() {
-	int n, m, l;
-	cin >> n >> m >> l;
+	int n, m;
+	cin >> n >> m;
 	vector<vector<int>> graph(m+1);
 	for (int i = 0; i < m; i++) {
 		int src, dst;
