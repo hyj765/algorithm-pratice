@@ -4,9 +4,9 @@
 #include<algorithm>
 using namespace std;
 
-//동호가 받을 수 있는 최대 컵라면 개수 구하기.
+//동호가 받을 수 있는 [최대 컵라면 개수] 구하기.
 // n은 입력 횟수 ex.first은 데드라인 second는 컵라면 개수
-/*
+/* 항상 더 많은 컵라면을 주게 순차적으로 골름 + 데드라인이 존재하기 떄문에 항상 체크해줘야함.
 void pair_print(vector<pair<int, int>> ar) {
 	for (auto value : ar) {
 		cout << value.first << " " << value.second << endl;
@@ -33,7 +33,7 @@ int main() {
 	//제일 낮은 데드라인부터 순차탐색하기 위해 정렬
 	
 	for (int i = 0; i < n; i++) {
-		if (g.size() < ar[i].first) { //문제의 수에 따른 데드라인 체크
+		if (g.size() < ar[i].first) { //문제의 수에 따른 데드라인 체크 
 			g.push({-(ar[i].second),ar[i].first}); // 우선순위 큐에서는 가장 컵라면을 적게 주는 문제가 최상단에 오게 하기 위해 -값으로 저장함.
 		}
 		else {
