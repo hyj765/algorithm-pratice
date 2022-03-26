@@ -2,7 +2,7 @@
 #include<vector>
 #include<queue>
 using namespace std;
-
+//다익스트라 역시 그리디 알고리즘에 속함
 vector<int> djicstra(vector<vector<pair<int, int>>> graph,int start) {
 	vector<bool>visited(graph.size(), false);
 	vector<int>dist(graph.size(), 99999);
