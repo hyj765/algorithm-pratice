@@ -1,7 +1,7 @@
 #include<iostream>
 /*
 	Amdahls_law 
-	St = improve_percentage
+	St = improve_percentage   = (1.xx - 1) *100;
 	P = Function_Running_Time;
 	Sp = Improved_Function_Running Time;
 */
