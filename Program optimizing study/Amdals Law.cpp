@@ -2,7 +2,7 @@
 /*
 	Amdahls_raw 
 	St = improve_percentage
-	P = Function Running Time;
+	P = Function_Running_Time;
 	Sp = Improved_Function_Running Time;
 */
 
