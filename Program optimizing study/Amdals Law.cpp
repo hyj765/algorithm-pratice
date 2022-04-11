@@ -1,6 +1,6 @@
 #include<iostream>
 /*
-	Amdahls_raw 
+	Amdahls_law 
 	St = improve_percentage
 	P = Function_Running_Time;
 	Sp = Improved_Function_Running Time;
