@@ -1,28 +1,29 @@
 #include<iostream>
 #include<vector>
 
-std::vector<int> scalar_product(std::vector<int> const& v, int c) { // °ª º¯°æÀÌ ÇÊ¿ä ¾øÀ» ½Ã¿¡´Â const&¸¦ ÅëÇÏ¿© º¹»ç°¡ ÀÏ¾î³ªÁö ¾Êµµ·Ï ¹æÁö
+std::vector<int> scalar_product(std::vector<int> const& v, int c) { // ê°’ ë³€ê²½ì´ í•„ìš” ì—†ì„ ì‹œì—ëŠ” const&ë¥¼ í†µí•˜ì—¬ ë³µì‚¬ê°€ ì¼ì–´ë‚˜ì§€ ì•Šë„ë¡ ë°©ì§€
 	std::vector<int> rt;
-	rt.reserve(v.size()); // Ç×»ó ÀçÇÒ´çÀ» ÃÖ¼ÒÈ­ÇÏ±â À§ÇÏ¿© reserve ¸í·É¾î¸¦ ÅëÇÏ¿© ¸Þ¸ð¸® ¹Ì¸® ÇÒ´ç
+	rt.reserve(v.size()); // í•­ìƒ ìž¬í• ë‹¹ì„ ìµœì†Œí™”í•˜ê¸° ìœ„í•˜ì—¬ reserve ëª…ë ¹ì–´ë¥¼ í†µí•˜ì—¬ ë©”ëª¨ë¦¬ ë¯¸ë¦¬ í• ë‹¹
 	for (auto val : v) {
 		rt.push_back(val * c);
 	}
 	return rt;
 }
 
-void scalar_product_op(std::vector<int> const& v, int c, std::vector<int>& rt) { // 1¹ø¿¡¼­ È£Ãâ¿¡ ´ëÇÑ º¹»ç Á¦°ÅÇß´Ù¸é ¹ÝÈ¯¿¡ ´ëÇÑ º¹»ç Á¦°Å
+void scalar_product_op(std::vector<int> const& v, int c, std::vector<int>& rt) { // 1ë²ˆì—ì„œ í˜¸ì¶œì— ëŒ€í•œ ë³µì‚¬ ì œê±°í–ˆë‹¤ë©´ ë°˜í™˜ì— ëŒ€í•œ ë³µì‚¬ ì œê±°
 	rt.clear();
 	rt.reserve(v.size());
 	for (auto val : v) {
 		rt.push_back(val * c);
 	}
 } /*
-	ÂüÁ¶ ¹ÝÈ¯À¸·Î ¹ÝÈ¯ °ª¿¡ ´ëÇÑ º¹»ç¸¦ ÇÇÇÒ ¼ö ÀÖÀ½.
-	RVO(return value optimization)¹æ¹ý
-	ÀÌ ¹æ¹ýÀº °´Ã¼°¡ ¹ÝÈ¯Çü°ú °°Àº Å¸ÀÔÀÌ¿©¸¸ °¡´ÉÇÔ.
-	ÇÔ¼ö°¡ °£´ÜÇÒ ½Ã ÄÄÆÄÀÏ·¯°¡ RVO¸¦ ¼öÇàÇÒ °¡´É¼ºÀÌ ³ôÀ½
-	ÀÌ ¹æ¹ýÀ» »ç¿ëÇÏ¸é ÇØ´ç ÇÔ¼ö°¡ ¹ÝÈ¯À» ¾ÈÇÏ°Ô ÇÏ°Å³ª ¼º°øÀûÀÎ ¼öÇàÀ» Çß´Â Áö¿¡ ´ëÇÑ È®ÀÎ °ªÀÇ ¹ÝÈ¯À¸·Î
-	»ç¿ëÇÒ ¼ö ÀÖÀ½.
-	´Ü ¿¬»êÀÚ ÇÔ¼ö¿¡´Â ±¸Çö X
+	ì°¸ì¡° ë°˜í™˜ìœ¼ë¡œ ë°˜í™˜ ê°’ì— ëŒ€í•œ ë³µì‚¬ë¥¼ í”¼í•  ìˆ˜ ìžˆìŒ.
+	RVO(return value optimization)ë°©ë²•
+	ì´ ë°©ë²•ì€ ê°ì²´ê°€ ë°˜í™˜í˜•ê³¼ ê°™ì€ íƒ€ìž…ì´ì—¬ë§Œ ê°€ëŠ¥í•¨.
+	í•¨ìˆ˜ê°€ ê°„ë‹¨í•  ì‹œ ì»´íŒŒì¼ëŸ¬ê°€ RVOë¥¼ ìˆ˜í–‰í•  ê°€ëŠ¥ì„±ì´ ë†’ìŒ
+	ì´ ë°©ë²•ì„ ì‚¬ìš©í•˜ë©´ í•´ë‹¹ í•¨ìˆ˜ê°€ ë°˜í™˜ì„ ì•ˆí•˜ê²Œ í•˜ê±°ë‚˜ ì„±ê³µì ì¸ ìˆ˜í–‰ì„ í–ˆëŠ” ì§€ì— ëŒ€í•œ í™•ì¸ ê°’ì˜ ë°˜í™˜ìœ¼ë¡œ
+	ì‚¬ìš©í•  ìˆ˜ ìžˆìŒ.
+	ë‹¨ ì—°ì‚°ìž í•¨ìˆ˜ì—ëŠ” êµ¬í˜„ X
+	C++ 11 ì´ìƒë¶€í„°ëŠ” RVOë¥¼ ìžë™ìœ¼ë¡œ ìµœì í™”í•´ì£¼ê¸° ë•Œë¬¸ì— ì´ìƒ ë²„ì „ì—ì„œëŠ” return ê°’ì„ ì‚¬ìš©í•´ë„ ìƒê´€ ì—†ìŒ.
   */
 
